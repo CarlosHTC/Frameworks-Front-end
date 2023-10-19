@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body style="background-color: lightcoral;">
+    <div class="offset-lg-2 col-lg-8 col-md-12 justify-content-center">
+        <div class="jumbotron-fluid">
+            <header>
+                <nav class="nav nav-tabs col-sm-12 col-md-12 col-lg-12 justify-content-center"
+                    style="background-color: bisque;">
+                    <li class="p-2">
+                        <a class="text-secondary" id="localData" style="font-size: smaller;"></a>
+                    </li>
+                    <li class="p-2 border-left border-success">
+                        <a class="text-secondary" href="#" style="font-size: smaller;"> Link</a>
+                    </li>
+                    <li class="p-2 border-left border-success">
+                        <a class="text-secondary" href="#" style="font-size: smaller;"> PUBLICIDADE</a>
+                    </li>
+                    <li class="p-2 border-left border-success">
+                        <a class="text-secondary" href="#" style="font-size: smaller;"> QUEM SOMOS</a>
+                    </li>
+                    <li class="p-2 border-left border-success">
+                        <a class="text-secondary" href="#" style="font-size: smaller;"> FOTOS</a>
+                    </li>
+                    <li class="p-2 border-left border-success">
+                        <a class="text-secondary" href="#" style="font-size: smaller;"> VÍDEOS</a>
+                    </li>
+                </nav>
+                <div class="row justify-content-center p-4">
+
+                </div>
+            </header>
+        </div>
+        <div style="background-image: url(Img/fundo.jpg); background-repeat: no-repeat; background-size: 100%;">
+            <nav class="nav nav-tabs col-sm-12 col-md-12 col-lg-12" style="background-color: #202020e0">
+                <form class="row col-8 ml-5 p-1">
+                    <li class="p-1">
+                        <a class="nav-item" href="#" style="color: #ffffff; font-size: small;">INICIO</a>
+                    </li>
+                    <li class="p-1">
+                        <a class="nav-item" href="#" style="color: #ffffff; font-size: small;">CONTATO</a>
+                    </li>
+                </form>
+                <div class="col-3 p-2 ">
+                    <p class="text-white">Pesquisar</p>
+                    <input type="text" style="background-color: #202020e0; color: #70583cc5;">
+                </div>
+            </nav>
+            <div class="container pt-3">
+                <div class="col-3 col-offset justify-content-md-center">
+                    <h3 class="text-secondary font-italic rounded-pill pl-3" style="background-color: gold;">Pratos</h3>
+                </div>
+                <div class="row">
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner rounded">
+                            <div class="carousel-item active rounded">
+                                <img src="Img/MariaIzabel.jpg" style="height: 40vh; width: 50vh" alt="Maria Izabel">
+                                <p class="text-secondary"> Maria Izabel</p>
+                            </div>
+                            <div class="carousel-item rounded">
+                                <img src="Img/farofa-de-banana.jpg" style="height: 40vh; width: 50vh;"
+                                    alt="Farofa de Banana">
+                                <p class="text-secondary">Farofa de Banana</p>
+                            </div>
+                            <div class="carousel-item rounded">
+                                <img src="Img/ventrecha-de-pacu.jpg" style="height: 40vh; width: 50vh"
+                                    alt="Ventrecha de Pacu">
+                                <p class="text-secondary">Ventrecha de Pacu</p>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev border-0 bg-transparent" type="button"
+                            data-target="#carouselExampleControls" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </button>
+                        <button class="carousel-control-next border-0 bg-transparent" type="button"
+                            data-target="#carouselExampleControls" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <script src="index.js"></script>
+            <footer></footer>
+        </div>
+    </div>
+</body>
+
+</html>
