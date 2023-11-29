@@ -115,33 +115,41 @@
                         </button>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="modal" tabindex="-1" role="dialog" id="meuModal">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Efetuar Reserva</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Selecione quando sera feita sua reserva</p>
-                        <div class="container mt-5">
-                            <h4>Datas Disponíveis</h4>
-                            <ul id="listaDatas" class="list-group">
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnSalvarReserva">Efetuar
-                            reserva</button>
-                    </div>
+                <div class="col-12 p-3">
+                    <p style="color: black;">Já possuo reserva</p>
+                    <button type="button" class="btn btn-secondary mb-3" id="btnChecarReserva">
+                        Checar reservas
+                    </button>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="meuModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Efetuar Reserva</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Selecione quando sera feita sua reserva</p>
+                    <div class="container mt-5">
+                        <h4>Datas para reservas</h4>
+                        <ul id="listaDatas" class="list-group">
+                        </ul>
+                        <div id="mensagemDisponibilidade"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnSalvarReserva">Efetuar
+                        reserva</button>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
     <footer>
         <div class="container">
@@ -164,11 +172,28 @@
                 toastr.success('Ação de salvar realizada com sucesso!', 'Sucesso');
             });
 
-            var datasDisponiveis = ['2023-12-01', '2023-12-05', '2023-12-10', '2023-12-15'];
+            $("#btnChecarReserva").click(function () {
+                alert("Você não possui reservas salvas.");
+            });
+
+            var datasDisponiveis = [
+                '2023 12 01',
+                '2023 12 03',
+                '2023 12 04',
+                '2023 12 05',
+                '2023 12 06',
+                '2023 12 07',
+                '2023 12 8',
+                '2023 12 10',
+                '2023 12 11',
+                '2023 12 12',
+                '2023 12 13',
+                '2023 12 14',
+                '2023 12 15'];
 
             function adicionarDatasNaLista(datas) {
                 var lista = $('#listaDatas');
-                lista.empty(); 
+                lista.empty();
 
                 datas.forEach(function (data) {
                     var listItem = $('<li>').addClass('list-group-item').text(data);
@@ -177,6 +202,18 @@
             }
 
             adicionarDatasNaLista(datasDisponiveis);
+
+            var datasDisponiveis = ['2023 12 15'];
+
+            $(".list-group-item").mouseenter(function () {
+                var dataSelecionada = $(this).text();
+
+                if (datasDisponiveis.includes(dataSelecionada)) {
+                    toastr.success("Reservas disponiveis na data " + dataSelecionada);
+                } else {
+                    toastr.error("Reservas fechadas na data " + dataSelecionada);
+                }
+            });
         });
     </script>
 </body>
