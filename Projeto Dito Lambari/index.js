@@ -33,3 +33,4 @@ function getNewDate() {
     return "Cuiabá, " + dia + " DE " + mes.name + " DE " + ano;
     // return x
 }
+

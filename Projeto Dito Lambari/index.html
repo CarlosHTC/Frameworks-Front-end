@@ -4,10 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <title>Document</title>
 </head>
 
@@ -41,8 +45,8 @@
                 </div>
             </header>
         </div>
-         <div class=" row justify-content-center">
-            <h2 style="color: blue;">TITULO DO SITE</h2>
+        <div class=" row justify-content-center">
+            <h2 class="fst-italic" style="color: blue;">Dito Cuiabano</h2>
         </div>
         <div style="background-image: url(Img/fundo.jpg); background-repeat: no-repeat; background-size: 100%;">
             <nav class="nav nav-tabs col-sm-12 col-md-12 col-lg-12" style="background-color: #202020e0">
@@ -60,7 +64,7 @@
                         <a class="nav-item" href="#" style="color: #ffffff; font-size: small;">CONTATO</a>
                     </li>
                 </form>
-                <div class="col-4 p-2 row">
+                <div class="col-4 p-2 row ml-5">
                     <p class="text-white mt-3 mr-2">Pesquisar</p>
                     <input class="rounded-pill" type="text" style="background-color: #202020e0; color: #70583cc5;">
                 </div>
@@ -74,17 +78,17 @@
                         <div class="carousel-inner rounded">
                             <div class="carousel-item active rounded">
                                 <img src="Img/MariaIzabel.jpg" style="height: 40vh; width: 50vh" alt="Maria Izabel">
-                                <p class="text-secondary"> Maria Izabel</p>
+                                <p style="color: bisque;"> Maria Izabel</p>
                             </div>
                             <div class="carousel-item rounded">
                                 <img src="Img/farofa-de-banana.jpg" style="height: 40vh; width: 50vh;"
                                     alt="Farofa de Banana">
-                                <p class="text-secondary">Farofa de Banana</p>
+                                <p style="color: bisque;">Farofa de Banana</p>
                             </div>
                             <div class="carousel-item rounded">
                                 <img src="Img/ventrecha-de-pacu.jpg" style="height: 40vh; width: 50vh"
                                     alt="Ventrecha de Pacu">
-                                <p class="text-secondary">Ventrecha de Pacu</p>
+                                <p style="color: bisque;">Ventrecha de Pacu</p>
                             </div>
                         </div>
                         <button class="carousel-control-prev border-0 bg-transparent" type="button"
@@ -100,10 +104,81 @@
                     </div>
                 </div>
             </div>
-            <script src="index.js"></script>
-            <footer></footer>
+        </div>
+        <div style="background-color: lavender;">
+            <div class="container">
+                <div class="col-lg-12 col-md-12 col-sm-6 p-3">
+                    <p style="color: black;">Faça sua reserva no nosso restaurante clicando abaixo</p>
+                    <div class="justify-content-center">
+                        <button type="button" class="btn btn-primary mb-3" id="btnAbrirModal">
+                            clique aqui
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" tabindex="-1" role="dialog" id="meuModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Efetuar Reserva</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Selecione quando sera feita sua reserva</p>
+                        <div class="container mt-5">
+                            <h4>Datas Disponíveis</h4>
+                            <ul id="listaDatas" class="list-group">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnSalvarReserva">Efetuar
+                            reserva</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <footer>
+        <div class="container">
+            <div class="col-12 fixed bottom justify-content-center">
+                <div>
+                    <p class="fst-italic">
+                        &copySite Dito Cuiabano 2023
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        $(document).ready(function () {
+            $("#btnAbrirModal").click(function () {
+                $("#meuModal").modal("show");
+            });
+
+            $("#btnSalvarReserva").click(function () {
+                toastr.success('Ação de salvar realizada com sucesso!', 'Sucesso');
+            });
+
+            var datasDisponiveis = ['2023-12-01', '2023-12-05', '2023-12-10', '2023-12-15'];
+
+            function adicionarDatasNaLista(datas) {
+                var lista = $('#listaDatas');
+                lista.empty(); 
+
+                datas.forEach(function (data) {
+                    var listItem = $('<li>').addClass('list-group-item').text(data);
+                    lista.append(listItem);
+                });
+            }
+
+            adicionarDatasNaLista(datasDisponiveis);
+        });
+    </script>
 </body>
 
 </html>
